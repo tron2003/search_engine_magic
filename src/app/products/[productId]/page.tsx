@@ -7,11 +7,10 @@ import Image from "next/image";
 import { Check, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-interface PageProps {
-    params: {
-        productId: string;
-    };
+type PageProps = {
+    params: { productId: string }
 }
+
 
 export type CoreProduct = Omit<Product, "created_At" | "updated_At">;
 
