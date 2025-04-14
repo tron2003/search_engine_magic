@@ -29,7 +29,7 @@ const Page = async ({ searchParams }: PageProps) => {
     // Build the full-text search query by splitting and joining with " & "
     const cleanedQuery = query.trim().split(" ").join(" & ");
 
-    const products: CoreProduct[] = await db
+    let products: CoreProduct[] = await db
         .select()
         .from(productsTable)
         .where(

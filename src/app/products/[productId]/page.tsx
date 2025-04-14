@@ -17,7 +17,7 @@ export type CoreProduct = Omit<Product, "created_At" | "updated_At">;
 
 const Page = async ({ params }: PageProps) => {
     // Await params to resolve
-    const { productId } =  params;
+    const { productId } = await params;
 
     if (!productId) {
         return notFound();
