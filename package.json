@@ -2,13 +2,14 @@
   "name": "search",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build",
-    "start": "next start",
-    "drizzle:seed": "yarn tsx ./src/db/seed.ts",
-    "lint": "next lint"
-  },
+ "scripts": {
+  "dev": "next dev --turbopack",
+  "build": "next build",
+  "start": "next start",
+  "drizzle:seed": "pnpm tsx ./src/db/seed.ts",
+  "lint": "next lint"
+}
+,
   "dependencies": {
     "@ai-sdk/deepseek": "^0.2.9",
     "@faker-js/faker": "^9.7.0",

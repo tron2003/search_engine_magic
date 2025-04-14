@@ -8,19 +8,15 @@ import { Check, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type PageProps = {
-    params: { productId: string }
-}
-
+    params: Promise<{ productId: string }>;
+};
 
 export type CoreProduct = Omit<Product, "created_At" | "updated_At">;
 
 const Page = async ({ params }: PageProps) => {
-    // Await params to resolve
     const { productId } = await params;
 
-    if (!productId) {
-        return notFound();
-    }
+    if (!productId) return notFound();
 
     const productList = await db
         .select()
@@ -29,9 +25,7 @@ const Page = async ({ params }: PageProps) => {
 
     const product: CoreProduct | undefined = productList[0];
 
-    if (!product) {
-        return notFound();
-    }
+    if (!product) return notFound();
 
     return (
         <div className="py-8 px-12 pb-8 bg-white shadow-md rounded-b-md divide-y divide-zinc-100">
@@ -56,7 +50,7 @@ const Page = async ({ params }: PageProps) => {
             </div>
             <div className="mt-4">
                 <div className="flex items-center">
-                    <p className="font-medium text-gray-900 ">
+                    <p className="font-medium text-gray-900">
                         ${product.price.toFixed(2)}
                     </p>
                 </div>
@@ -73,7 +67,7 @@ const Page = async ({ params }: PageProps) => {
                 </div>
             </div>
             <div className="mt-6">
-                <Button className="w-full mt-10 ">Add to Cart</Button>
+                <Button className="w-full mt-10">Add to Cart</Button>
                 <div className="mt-6 text-center">
                     <div className="inline-flex text-sm text-medium">
                         <Shield className="mr-2 h-5 w-5 flex-shrink-0 text-gray-400" />
