@@ -1,8 +1,6 @@
-// import Image from "next/image";
+// this could be your landing page
+// we dont need this page, logic is handled in the layout
 
 export default function Home() {
-  return (
-    <div className="div"></div>
-   
-  );
+  return <></>
 }
